@@ -11,8 +11,7 @@ var specialCharacterArray = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", "
 function generatePassword() {
   // prompt user to generate password
   window.alert("Generate your secure password here.  You must include a password that has the criteria selected.");
-  // password variable is a placeholder for user generated amount of length
-  var newPassword = "";
+
   // set password length
   var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and shorter than 128 characters."));
   while (passwordLength <= 7 || passwordLength >= 128) {
@@ -40,11 +39,13 @@ function generatePassword() {
     newPassword += specialCharCase;
   };
 
+  // password variable is a placeholder for user generated amount of length
+  var newPassword = "";
 
   // for loop will go through above criteria X number of times and add to the generated password
-  for (var i = 0, i = passwordLength.length; i++) {
-    newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
-  }
+  // for (i = 0, i = newPassword.length; i++) {
+  //   newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
+  // }
   // add password to display
   document.getElementById("password").value = newPassword;
   // return newPassword;
