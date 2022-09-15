@@ -8,6 +8,10 @@ var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 var numbArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacterArray = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "?", "/"];
 
+  // password variable is a placeholder for user generated amount of length
+  var newPassword = "";
+  console.log();
+  
 function generatePassword() {
   // prompt user to generate password
   window.alert("Generate your secure password here.  You must include a password that has the criteria selected.");
@@ -38,9 +42,6 @@ function generatePassword() {
   if (specialCharCase === "Yes" || specialCharCase === "yes" || specialCharCase === "YES") {
     newPassword += specialCharCase;
   };
-
-  // password variable is a placeholder for user generated amount of length
-  var newPassword = "";
 
   // for loop will go through above criteria X number of times and add to the generated password
   // for (i = 0, i = newPassword.length; i++) {
