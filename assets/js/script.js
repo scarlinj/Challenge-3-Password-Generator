@@ -17,8 +17,8 @@ function generatePassword() {
   window.alert("Generate your secure password here.  You must include a password that has the criteria selected.");
 
   // set password length
-  var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and shorter than 128 characters."));
-  while (passwordLength <= 7 || passwordLength >= 128) {
+  var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and at most 128 characters."));
+  while (passwordLength <= 8 || passwordLength >= 128) {
     var passwordLength = prompt("How long will your password be?  Password length must be between 8 and 128 characters.");
   };
   alert("Your password will have " + passwordLength + " characters.");
@@ -44,6 +44,7 @@ function generatePassword() {
   };
 
   // for loop will go through above criteria X number of times and add to the generated password
+  
   // for (i = 0, i = newPassword.length; i++) {
   //   newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
   // }
