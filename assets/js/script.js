@@ -18,50 +18,83 @@ function generatePassword() {
 
   // set password length
   var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and at most 128 characters."));
-  while (passwordLength <= 8 || passwordLength >= 128) {
+  while (passwordLength <=7 || passwordLength >= 128) {
     var passwordLength = prompt("How long will your password be?  Password length must be between 8 and 128 characters.");
   };
   alert("Your password will have " + passwordLength + " characters.");
+  console.log("Your password will have " + passwordLength + " characters.");
+
   // include lower case characters
   var lowerCase = (prompt("Would you like to include include lowercase characters? Enter Yes or No."));
+  
   if (lowerCase === "Yes" || lowerCase === "yes" || lowerCase === "YES") {
-    newPassword += lowerCase;
+    // don't want it to equal the input "Yes", you want to make it randomize between uppercase letters - you have the variable lowerCase, which is the input for this question
+    // want to use random from lowercaseArray
+    // newPassword += lowerCase; -- this is old input
+    // the below adds the entire lowercaseArray from the top of this page - want to pick randomly from this array
+    newPassword += lowercaseArray;
+    console.log("Your password will include lower case characters.");
+    console.log(lowercaseArray);
   };
+
   // include upper case characters
   var upperCase = (prompt("Would you like to include include uppercase characters? Enter Yes or No."));
+  
   if (upperCase === "Yes" || upperCase === "yes" || upperCase === "YES") {
     newPassword += upperCase;
+    console.log("Your password will include upper case characters.");
+    console.log(uppercaseArray);
   };
+
   // include numeric characters
   var numericCase = (prompt("Would you like to include include numeric characters? Enter Yes or No."));
+  
   if (numericCase === "Yes" || numericCase === "yes" || numericCase === "YES") {
     newPassword += numericCase;
+    console.log("Your password will include numeric characters.");
+    console.log(numbArray);
   };
+
   // include special characters
   var specialCharCase = (prompt("Would you like to include include special characters? Enter Yes or No."));
+  
   if (specialCharCase === "Yes" || specialCharCase === "yes" || specialCharCase === "YES") {
     newPassword += specialCharCase;
+    console.log("Your password will include special characters.");
+    console.log(specialCharacterArray);
   };
 
   // for loop will go through above criteria X number of times and add to the generated password
-  
-  // for (i = 0, i = newPassword.length; i++) {
+  // adding the below causes the computer to work really hard - review this and figure out what's wrong
+  // for (i = 0, i = newPassword.length; i++;) {
   //   newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
   // }
+
+  password = newPassword[Math.floor(Math.random() * newPassword.length)];
+
+  // console.log(password);
+
   // add password to display
   document.getElementById("password").value = newPassword;
-  // return newPassword;
+  return newPassword;
 
-}
+};
 
 // Write password to the #password input
+function writePassword() {
+console.log();
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+//write password function - below is from jpd61 - need to call generatePassword to write the password to the text box - refer to this
 // function writePassword() {
-
-//   var password = generatePassword();
 //   var passwordText = document.querySelector("#password");
-
+//   passwordText.value = " ";
+//   var password = generatePassword();
 //   passwordText.value = password;
-
 // }
 
 // Add event listener to generate button
