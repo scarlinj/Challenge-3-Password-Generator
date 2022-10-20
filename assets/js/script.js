@@ -1,10 +1,12 @@
 // This is to generate a random password between 8 and 128 characters
 
+// const { arrayBuffer } = require("stream/consumers");
+
 // Get references to the #generate element
 // below are the variables for each parameter for the properties of the password
 var generateBtn = document.querySelector("#generate");
-var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numbArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacterArray = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "?", "/"];
 
@@ -32,25 +34,28 @@ function generatePassword() {
     // want to use random from lowercaseArray
     // newPassword += lowerCase; -- this is old input
     // the below adds the entire lowercaseArray from the top of this page - want to pick randomly from this array
-    newPassword += lowercaseArray;
+    lowerCaseRandom = lowerCaseArray[Math.floor(Math.random()*lowerCase.length)];
+    newPassword += lowerCaseRandom;
     console.log("Your password will include lower case characters.");
-    console.log(lowercaseArray);
+    console.log(lowerCaseArray);
   };
 
   // include upper case characters
   var upperCase = (prompt("Would you like to include include uppercase characters? Enter Yes or No."));
   
   if (upperCase === "Yes" || upperCase === "yes" || upperCase === "YES") {
-    newPassword += upperCase;
+    upperCaseRandom = upperCaseArray[Math.floor(Math.random()*upperCase.length)];
+    newPassword += upperCaseRandom;
     console.log("Your password will include upper case characters.");
-    console.log(uppercaseArray);
+    console.log(upperCaseArray);
   };
 
   // include numeric characters
   var numericCase = (prompt("Would you like to include include numeric characters? Enter Yes or No."));
   
   if (numericCase === "Yes" || numericCase === "yes" || numericCase === "YES") {
-    newPassword += numericCase;
+    numericCaseRandom = numbArray[Math.floor(Math.random()*numericCase.length)];
+    newPassword += numericCaseRandom;
     console.log("Your password will include numeric characters.");
     console.log(numbArray);
   };
@@ -59,7 +64,8 @@ function generatePassword() {
   var specialCharCase = (prompt("Would you like to include include special characters? Enter Yes or No."));
   
   if (specialCharCase === "Yes" || specialCharCase === "yes" || specialCharCase === "YES") {
-    newPassword += specialCharCase;
+    specialCharRandom = specialCharacterArray[Math.floor(Math.random()*specialCharCase.length)];
+    newPassword += specialCharRandom;
     console.log("Your password will include special characters.");
     console.log(specialCharacterArray);
   };
