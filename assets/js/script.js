@@ -20,7 +20,7 @@ function generatePassword() {
 
   // set password length
   var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and at most 128 characters."));
-  while (passwordLength <=7 || passwordLength >= 128) {
+  while (passwordLength < 7 || passwordLength > 128) {
     var passwordLength = prompt("How long will your password be?  Password length must be between 8 and 128 characters.");
   };
   alert("Your password will have " + passwordLength + " characters.");
@@ -71,14 +71,25 @@ function generatePassword() {
   };
 
   // for loop will go through above criteria X number of times and add to the generated password
-  // adding the below causes the computer to work really hard - review this and figure out what's wrong
+  // adding the below causes the computer to work really hard - still have same issue 10-19.  review this and figure out what's wrong
   // for (i = 0, i = newPassword.length; i++;) {
   //   newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
   // }
+  // try using for loops or while loops to iterate through password prompts multiple times, randomly
+  // repeat and execute until password reaches randomly-generated length
 
   password = newPassword[Math.floor(Math.random() * newPassword.length)];
 
-  // console.log(password);
+  for(var i = 0; i < passwordLength; i++) {
+    // "apple" appears 4 times in the console - this means that the for loop worked 4 times when you have i < 4
+    // apple appears the same number of times that you input for passwordLength prompt when tested - the for loop works
+    // still only get one value per question for a total length of 4, even though you input a number higher than 4
+    // call back the loop above?
+    // generatePassword(); - this does not work
+    // break;
+    console.log('apple;')
+  }
+  // console.log(newPassword);
 
   // add password to display
   document.getElementById("password").value = newPassword;
@@ -93,6 +104,7 @@ console.log();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  console.log(passwordText);
 
 }
 //write password function - below is from jpd61 - need to call generatePassword to write the password to the text box - refer to this
