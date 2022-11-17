@@ -70,6 +70,7 @@ function generatePassword() {
     console.log(specialCharacterArray);
   };
 
+  var randomPassword = ""
   // for loop will go through above criteria X number of times and add to the generated password
   // adding the below causes the computer to work really hard - still have same issue 10-19.  review this and figure out what's wrong
   // for (i = 0, i = newPassword.length; i++;) {
@@ -78,21 +79,27 @@ function generatePassword() {
   // try using for loops or while loops to iterate through password prompts multiple times, randomly
   // repeat and execute until password reaches randomly-generated length
 
-  password = newPassword[Math.floor(Math.random() * newPassword.length)];
-
   for(var i = 0; i < passwordLength; i++) {
-    // "apple" appears 4 times in the console - this means that the for loop worked 4 times when you have i < 4
-    // apple appears the same number of times that you input for passwordLength prompt when tested - the for loop works
+    // "apple" appears the right number of times in the console - this means that the for loop worked 4 times: one for each set of variables
+    // the "i" value appears the same number of times that you input for passwordLength prompt when tested on console.log - the for loop works
     // still only get one value per question for a total length of 4, even though you input a number higher than 4
-    // call back the loop above?
-    // generatePassword(); - this does not work
+    // how to call back the loop above?
+    // function generatePassword(); - this does not work
+    // see 3.2.5 of lesson - review for loops
+    // 3.5.5 - review recursion
     // break;
-    console.log('apple;')
+    // console.log('iteration is #',{i});
+    console.log(passwordLength[i]);
+    // console.log(newPassword);
+    // the below shows each value in the index for newPassword, but still only get 4 characters (5-9 are listed as "NaN")
+    console.log(newPassword[i] + i + " index");
   }
   // console.log(newPassword);
 
+  password = newPassword[Math.floor(Math.random() * newPassword.length)];
+
   // add password to display
-  document.getElementById("password").value = newPassword;
+  document.getElementById('#password').value = newPassword;
   return newPassword;
 
 };
@@ -105,7 +112,7 @@ console.log();
 
   passwordText.value = password;
   console.log(passwordText);
-
+  return passwordText;
 }
 //write password function - below is from jpd61 - need to call generatePassword to write the password to the text box - refer to this
 // function writePassword() {
