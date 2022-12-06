@@ -106,48 +106,17 @@ function generatePassword() {
     generatePassword += randomizeItem
   }
 
-  return generatePassword
+  return generatePassword;
 }
-  // adding the below causes the computer to work really hard - still have same issue 10-19.  review this and figure out what's wrong
-  // for (i = 0, i = newPassword.length; i++;) {
-  //   newPassword += newPassword[Math.floor(Math.random() * newPassword.length)];
-  // }
-  // try using for loops or while loops to iterate through password prompts multiple times, randomly
-  // repeat and execute until password reaches randomly-generated length
-
-  // for(var i = 0; i < newPassword.length; i++) {
-    // "apple" appears the right number of times in the console - this means that the for loop worked 4 times: one for each set of variables
-    // the "i" value appears the same number of times that you input for passwordLength prompt when tested on console.log - the for loop works
-    // still only get one value per question for a total length of 4, even though you input a number higher than 4
-    // the loop iterates the same number of times as the password length, but returns NaN values after the first 4 
-    // how to call back the loop above?
-    // generatePassword(); - this does not work - this will return the prompts again in a loop
-    // see 3.2.5 of lesson - review for loops
-    // 3.5.5 - review recursion
-    // break;
-    // console.log('iteration is #',{i});
-    // console.log(newPassword[i]);
-    // var randomChar = randomizeItem(randomPassword)
-    // console.log(newPassword);
-    // the below shows each value in the index for newPassword, but still only get 4 characters (5-9 are listed as "NaN" - not a number, which makes sense for letter variables)
-  //   console.log(newPassword[i] + i + " index");
-  // }
-  // console.log(newPassword);
-
-  // password = newPassword[Math.floor(Math.random() * passwordLength)];
-
-  // add password to display
-  // document.getElementById('#password').value = newPassword;
-  // return newPassword;
-
-// };
+ 
 
 // Write password to the #password input
 function writePassword() {
-console.log(password);
-  // var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
+  var password = generatePassword();
+  // Display new password to the screen
+  var passwordText = document.querySelector("#password");
+  console.log(password);
 //   passwordText.value = password;
 //   console.log(passwordText);
 //   return passwordText;
@@ -157,8 +126,9 @@ console.log(password);
 //   var passwordText = document.querySelector("#password");
 //   passwordText.value = " ";
 //   var password = generatePassword();
-//   passwordText.value = password;
-}
+//   passwordText.value = generatePassword;
+// }
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
