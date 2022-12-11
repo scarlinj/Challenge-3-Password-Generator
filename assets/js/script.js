@@ -94,43 +94,39 @@ function generatePassword() {
   ;
 
   // Generate the password after user answers prompts
-  // The inputSelection variable contains a list of random characters 
 
-  // var generatePassword = ""
+  // password variable is a placeholder for user generated amount of length
+var newPassword = "";
 
   // for loop will go through above criteria X number of times and add to the generated password
 
   for (var i = 0; i < passwordLength; i++) {
-    let randomNum = Math.floor(Math.random() * passwordLength);
-    password += inputSelection[randomNum];
+    let randomNum = (randomMath * passwordLength);
+    newPassword += inputSelection*randomNum;
     // var randomizedList = randomizeItem(inputSelection);
     // console.log("Your password will show " + randomizedList); - this function calls, so the for loop works to include all of the characters included
     // You want to randomly select characters from each list
     // generatePassword += randomizedList
     // console.log(randomizedList);
   }
-  return password;
 
   // call the generatePassword function
   return newPassword;
-  console.log("Your new password is " + generatePassword);
-  // console.log("call the generatePassword function");
+  console.log(newPassword);
 };
  
-// password variable is a placeholder for user generated amount of length
-var newPassword = "";
   
 // Write password to the #password input
 function writePassword() {
+
   var password = generatePassword();
   // Display new password to the screen
   var passwordText = document.querySelector("#password");
-  passwordText.value = " ";
-  console.log(password);
   passwordText.value = password;
+  console.log("Your new password is " + password);
 };
 
-// Add event listener to generate button
+// Add event listener to generate button - call the writePassword function, which assigns variable "password" according to the generatePassword function
 generateBtn.addEventListener("click", writePassword);
 
 // function to copy password to clipboard - referenced tutorial on Youtube TechnicalCafe
