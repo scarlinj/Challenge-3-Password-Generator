@@ -1,5 +1,8 @@
 // This is to generate a random password between 8 and 128 characters
 
+// password variable is a placeholder for user generated amount of length
+var newPassword = "";
+
 // References to the #generate ID
 var generateBtn = document.querySelector("#generate");
 
@@ -18,14 +21,18 @@ function randomizeItem(list) {
   return list[randomMath(list.length)]
 }
 
+// create a greater list of password attributes
+var inputSelection = []
+  
 
 function generatePassword() {
   // prompt user to generate password
   window.alert("Generate your secure password here.  You must include a password that has the criteria selected.");
 
   // set password length
-  var passwordLength = (prompt("How long will your password be? Must be at least 8 characters and at most 128 characters."));
+  var inputLength = window.prompt("How long will your password be? Must be at least 8 characters and at most 128 characters.");
   // check if password is a valid number
+  var passwordLength = parseInt(inputLength)
   if (isNaN(passwordLength)) {
     window.alert('Please type a valid number.')
     return
@@ -41,21 +48,18 @@ function generatePassword() {
   };
   alert("Your password will have " + passwordLength + " characters.");
   console.log("Your password will have " + passwordLength + " characters.");
-  parseInt(passwordLength);
 
-// create a greater list of password attributes
-  var inputSelection = []
-  
 // Variables for each parameter for the password
-  var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var numbArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var specialCharArray = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "?", "/"];
+  const upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const numbArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  // var numbArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const specialCharArray = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '{', '[', '}', ']', ':', ';', '<', ',', '>', '.', '?', '/'];
 
 // include lower case characters
   var lowerCase = window.confirm("Would you like to include include lowercase characters?")
   if (lowerCase === true) {
-    inputSelection.push(lowerCaseArray)
+    inputSelection.push(lowerCaseArray);
     console.log("Your password will include lower case characters.");
     console.log(lowerCaseArray);
   }
@@ -66,7 +70,7 @@ function generatePassword() {
   var upperCase = window.confirm("Would you like to include include uppercase characters?")
   if (upperCase === true) {
     inputSelection.push(upperCaseArray)
-    console.log("Your password will include lower case characters.");
+    console.log("Your password will include upper case characters.");
     console.log(upperCaseArray);
   }
 
@@ -95,14 +99,13 @@ function generatePassword() {
 
   // Generate the password after user answers prompts
 
-  // password variable is a placeholder for user generated amount of length
-var newPassword = "";
+
 
   // for loop will go through above criteria X number of times and add to the generated password
 
   for (var i = 0; i < passwordLength; i++) {
-    let randomNum = (randomMath * passwordLength);
-    newPassword += inputSelection*randomNum;
+    var randomList = randomizeItem * inputSelection;
+    newPassword += randomList;
     // var randomizedList = randomizeItem(inputSelection);
     // console.log("Your password will show " + randomizedList); - this function calls, so the for loop works to include all of the characters included
     // You want to randomly select characters from each list
@@ -114,7 +117,6 @@ var newPassword = "";
   return newPassword;
   console.log(newPassword);
 };
- 
   
 // Write password to the #password input
 function writePassword() {
