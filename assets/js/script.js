@@ -6,136 +6,116 @@ var newPassword = "";
 // References to the #generate ID
 var generateBtn = document.querySelector("#generate");
 
-// Randomize output from the selected variables using a random math var
-function randomMath(min, max) {
-  if (!max) {
-    max = min
-    min = 0
-  }
-  var somethingRandom = Math.random()
-  return Math.floor(min*(1-somethingRandom) + somethingRandom * max)
-}
+// References to the #copyPassword ID
+var copyBtn = document.querySelector("#copyPassword");
 
-// Make a list from the randomized output
-function randomizeItem(list) {
-  return list[randomMath(list.length)]
-}
+// Variables for each parameter for the password
+const upperCaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const lowerCaseList = 'abcdefghijklmnopqrstuvwxyz';
+const numbersList = '0123456789';
+const specialCharList = '~!@#$%^&*()-=_+[]{};:"';
+var criteriaChoices = "";
 
-// create a greater list of password attributes
-var inputSelection = []
-  
+// Add event listener to generate button - call the generatePassword function
+generateBtn.addEventListener("click", generatePassword);
 
 function generatePassword() {
+  // prevent screen from refreshing after button clicked
+  event.preventDefault();
+
+  // clear previous password from screen
+  password.value === "";
+  var newPassword = "";
+
   // prompt user to generate password
   window.alert("Generate your secure password here.  You must include a password that has the criteria selected.");
 
-  // set password length
-  var inputLength = window.prompt("How long will your password be? Must be at least 8 characters and at most 128 characters.");
-  // check if password is a valid number
-  var passwordLength = parseInt(inputLength)
-  if (isNaN(passwordLength)) {
-    window.alert('Please type a valid number.')
-    return
-  }
-  while (passwordLength < 7 || passwordLength > 128) {
-      // check if passowrd is the correct length
-  if (passwordLength < 7 || passwordLength > 128) {
-    window.alert('Please choose a number between 8 and 128.')
-    generatePassword();
-    return
-  }
-    var passwordLength = prompt("How long will your password be?  Password length must be between 8 and 128 characters.");
-  };
-  alert("Your password will have " + passwordLength + " characters.");
-  console.log("Your password will have " + passwordLength + " characters.");
+    // set password length
+    var passwordLength = window.prompt("How long will your password be? Must be at least 8 characters and at most 128 characters.");
+    // check if password is a valid number
+    if (isNaN(passwordLength)) {
+      window.alert('Please type a valid number.')
+      return;
+    }
+        // check if password is the correct length
+    if (passwordLength < 8 || passwordLength > 128) {
+      window.alert('Please choose a number between 8 and 128.')
+    };
+    alert("Your password will have " + passwordLength + " characters.");
+    console.log("Your password will have " + passwordLength + " characters.");
 
-// Variables for each parameter for the password
-  const upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  const numbArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  // var numbArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const specialCharArray = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '{', '[', '}', ']', ':', ';', '<', ',', '>', '.', '?', '/'];
+// Include each type of character selected for the password
 
 // include lower case characters
-  var lowerCase = window.confirm("Would you like to include include lowercase characters?")
-  if (lowerCase === true) {
-    inputSelection.push(lowerCaseArray);
+var lowerCase = window.confirm("Would you like to include include lowercase characters?")
+// include upper case characters
+var upperCase = window.confirm("Would you like to include include uppercase characters?")
+// include numeric characters
+var numericCase = window.confirm("Would you like to include include numeric characters?")
+// include special characters
+var specialCase = window.confirm("Would you like to include include special characters?")
+
+// Use criteria based on user choices
+  if (lowerCase) {
+    criteriaChoices += lowerCaseList;
     console.log("Your password will include lower case characters.");
-    console.log(lowerCaseArray);
+    console.log(lowerCaseList);
   }
-
   ;
 
-  // include upper case characters
-  var upperCase = window.confirm("Would you like to include include uppercase characters?")
-  if (upperCase === true) {
-    inputSelection.push(upperCaseArray)
+  if (upperCase) {
+    criteriaChoices += upperCaseList;
     console.log("Your password will include upper case characters.");
-    console.log(upperCaseArray);
+    console.log(upperCaseList);
   }
-
   ;
 
-  // include numeric characters
-  var numericCase = window.confirm("Would you like to include include numeric characters?")
-  if (numericCase === true) {
-    inputSelection.push(numbArray)
+  if (numericCase) {
+    criteriaChoices += numbersList;
     console.log("Your password will include numeric characters.");
-    console.log(numbArray);
+    console.log(numbersList);
   }
-
   ;
 
-  // include special characters
-  var specialCase = window.confirm("Would you like to include include special characters?")
-  
-  if (specialCase === true) {
-    inputSelection.push(specialCharArray)
+  if (specialCase) {
+    criteriaChoices += specialCharList;
     console.log("Your password will include special characters.");
-    console.log(specialCharArray);
+    console.log(specialCharList);
   }
-
   ;
 
   // Generate the password after user answers prompts
-
-
-
   // for loop will go through above criteria X number of times and add to the generated password
 
   for (var i = 0; i < passwordLength; i++) {
-    var randomList = randomizeItem * inputSelection;
-    newPassword += randomList;
-    // var randomizedList = randomizeItem(inputSelection);
-    // console.log("Your password will show " + randomizedList); - this function calls, so the for loop works to include all of the characters included
-    // You want to randomly select characters from each list
-    // generatePassword += randomizedList
-    // console.log(randomizedList);
+    // var randomList = randomizeItem * inputSelection;
+    newPassword += criteriaChoices.charAt(Math.floor(Math.random() * criteriaChoices.length));
   }
+    // newPassword += randomList;
+    password.value = newPassword;  
 
   // call the generatePassword function
-  return newPassword;
+  // return newPassword;
   console.log(newPassword);
 };
   
+
 // Write password to the #password input
-function writePassword() {
+// function writePassword() {
 
-  var password = generatePassword();
-  // Display new password to the screen
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-  console.log("Your new password is " + password);
-};
+//   var password = generatePassword();
+//   // Display new password to the screen
+//   var passwordText = document.querySelector("#password");
+//   passwordText.value = password;
+//   console.log("Your new password is " + password);
+// };
 
-// Add event listener to generate button - call the writePassword function, which assigns variable "password" according to the generatePassword function
-generateBtn.addEventListener("click", writePassword);
+// // function to copy password to clipboard - referenced tutorial on Youtube TechnicalCafe
+// // References to the #generate ID
+// // var generateBtn = document.querySelector("#generate");
+// function copyText(password) {
 
-// function to copy password to clipboard - referenced tutorial on Youtube TechnicalCafe
-
-// function copyPass() {
-
-//   document.querySelector("textarea").select();
-//   document.execCommand("Copy");
-//   alert("Password copied to clipboard!");
+//   var copyBtn = document.querySelector('#password');
+//   // document.execCommand("Copy");
+//   console.log("Password copied to clipboard!");
 // };

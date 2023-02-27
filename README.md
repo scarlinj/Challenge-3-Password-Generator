@@ -2,6 +2,10 @@
 
 Welcome to the Password Generator!  Here you can answer a series of prompts to define features for your password.  This includes the length of the password and if you want to include numbers, letters, or special characters.  Try it out to generate your own secure password!
 
+## Bugs
+
+Currently this displays results as a mix of "NaN" values instead of the values needed.
+
 ## Using the generator
 
 Navigate to the website to load the Generator: https://scarlinj.github.io/Password-Generator/
