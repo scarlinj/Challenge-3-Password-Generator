@@ -20,6 +20,8 @@ See a screenshot for the site below:
 
 ![Image of password generator results](./assets/images/Password%20Generator%20Results%20Screen.JPG "Password Result")
 
+![Image of console results](./assets/images/Password%20Generator%20Console.JPG "Console log")
+
 ## Technology
 
 This uses a Javascript back end to connect to the HTML front end.
