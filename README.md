@@ -2,9 +2,14 @@
 
 Welcome to the Password Generator!  Here you can answer a series of prompts to define features for your password.  This includes the length of the password and if you want to include numbers, letters, or special characters.  Try it out to generate your own secure password!
 
-## Bugs
+## Table of contents
 
-Currently this displays results as a mix of "NaN" values instead of the values needed.
+> - [Using the Generator](#Using-the-generator)
+>   - [Features](#features)
+>   - [Technology](#technology)
+>   - [How to Contribute](#How--to--Contribute)
+>   - [Questions](#questions)
+
 
 ## Using the generator
 
@@ -16,3 +21,13 @@ See a screenshot for the site below:
 ![Image of the password generator](./assets/images/Password%20Generator%20Screenshot.JPG "Password Generator")
 
 ![Image of password generator results](./assets/images/Password%20Generator%20Results%20Screen.JPG "Password Result")
+
+## Technology
+
+This uses a Javascript back end to connect to the HTML front end.
+
+## How to Contribute
+
+If you would like to contribute to, or if you want to report issues for this project, feel free to contact me through GitHub.
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
