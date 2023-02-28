@@ -14,3 +14,5 @@ From here, you can click the button "Generate Password" to open a modal that wil
 See a screenshot for the site below:
 
 ![Image of the password generator](./assets/images/Password%20Generator%20Screenshot.JPG "Password Generator")
+
+![Image of password generator results](./assets/images/)
