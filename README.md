@@ -15,4 +15,4 @@ See a screenshot for the site below:
 
 ![Image of the password generator](./assets/images/Password%20Generator%20Screenshot.JPG "Password Generator")
 
-![Image of password generator results](./assets/images/)
+![Image of password generator results](./assets/images/Password%20Generator%20Results%20Screen.JPG "Password Result")
