@@ -7,9 +7,8 @@ Welcome to the Password Generator!  Here you can answer a series of prompts to d
 > - [Using the Generator](#Using-the-generator)
 >   - [Features](#features)
 >   - [Technology](#technology)
+>   - [Future Development](#Future-Development)
 >   - [How to Contribute](#How--to--Contribute)
->   - [Questions](#questions)
-
 
 ## Using the generator
 
@@ -25,6 +24,10 @@ See a screenshot for the site below:
 ## Technology
 
 This uses a Javascript back end to connect to the HTML front end.
+
+## Future Development
+
+I will add a history of previous password generated.
 
 ## How to Contribute
 

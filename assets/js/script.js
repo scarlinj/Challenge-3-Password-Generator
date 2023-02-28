@@ -7,7 +7,7 @@ var newPassword = "";
 var generateBtn = document.querySelector("#generate");
 
 // References to the #copyPassword ID
-var copyBtn = document.querySelector("#copyPassword");
+var copyBtn = document.querySelector("#copy");
 
 // Variables for each parameter for the password
 const upperCaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -15,6 +15,7 @@ const lowerCaseList = 'abcdefghijklmnopqrstuvwxyz';
 const numbersList = '0123456789';
 const specialCharList = '~!@#$%^&*()-=_+[]{};:"';
 var criteriaChoices = "";
+var passwordList = "";
 
 // Add event listener to generate button - call the generatePassword function
 generateBtn.addEventListener("click", generatePassword);
@@ -47,9 +48,9 @@ function generatePassword() {
 // Include each type of character selected for the password
 
 // include lower case characters
-var lowerCase = window.confirm("Would you like to include include lowercase characters?")
+var lowerCase = window.confirm("Would you like to include include lower-case characters?")
 // include upper case characters
-var upperCase = window.confirm("Would you like to include include uppercase characters?")
+var upperCase = window.confirm("Would you like to include include upper-case characters?")
 // include numeric characters
 var numericCase = window.confirm("Would you like to include include numeric characters?")
 // include special characters
@@ -58,14 +59,14 @@ var specialCase = window.confirm("Would you like to include include special char
 // Use criteria based on user choices
   if (lowerCase) {
     criteriaChoices += lowerCaseList;
-    console.log("Your password will include lower case characters.");
+    console.log("Your password will include lower-case characters.");
     console.log(lowerCaseList);
   }
   ;
 
   if (upperCase) {
     criteriaChoices += upperCaseList;
-    console.log("Your password will include upper case characters.");
+    console.log("Your password will include upper-case characters.");
     console.log(upperCaseList);
   }
   ;
@@ -98,6 +99,9 @@ var specialCase = window.confirm("Would you like to include include special char
   // return newPassword;
   console.log(newPassword);
 };
+
+passwordList += newPassword;
+
   
 
 // Write password to the #password input
@@ -112,6 +116,24 @@ var specialCase = window.confirm("Would you like to include include special char
 
 // // function to copy password to clipboard - referenced tutorial on Youtube TechnicalCafe
 // // References to the #generate ID
+
+// Add event listener to copy password button - call the copyPassword function
+
+copyBtn.addEventListener("click", copyPassword);
+
+function copyPassword() {
+
+  // Select the text field
+  var copyText = document.getElementById("password");
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // console.log("reaches copyText")
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  window.alert("Copied the text: " + copyText.value);
+}
 // // var generateBtn = document.querySelector("#generate");
 // function copyText(password) {
 
