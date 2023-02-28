@@ -15,7 +15,7 @@ const lowerCaseList = 'abcdefghijklmnopqrstuvwxyz';
 const numbersList = '0123456789';
 const specialCharList = '~!@#$%^&*()-=_+[]{};:"';
 var criteriaChoices = "";
-var passwordList = "";
+var passwordList = [];
 
 // Add event listener to generate button - call the generatePassword function
 generateBtn.addEventListener("click", generatePassword);
@@ -98,24 +98,15 @@ var specialCase = window.confirm("Would you like to include include special char
   // call the generatePassword function
   // return newPassword;
   console.log(newPassword);
+
+    // Add new password to password history
+    newPassword.push(passwordList);
+    console.log("Previous Passwords: ");
+    console.log(passwordList);
+
 };
 
-passwordList += newPassword;
 
-  
-
-// Write password to the #password input
-// function writePassword() {
-
-//   var password = generatePassword();
-//   // Display new password to the screen
-//   var passwordText = document.querySelector("#password");
-//   passwordText.value = password;
-//   console.log("Your new password is " + password);
-// };
-
-// // function to copy password to clipboard - referenced tutorial on Youtube TechnicalCafe
-// // References to the #generate ID
 
 // Add event listener to copy password button - call the copyPassword function
 
@@ -127,17 +118,10 @@ function copyPassword() {
   var copyText = document.getElementById("password");
   copyText.setSelectionRange(0, 99999); // For mobile devices
 
-  // console.log("reaches copyText")
    // Copy the text inside the text field
   navigator.clipboard.writeText(copyText.value);
 
   // Alert the copied text
   window.alert("Copied the text: " + copyText.value);
 }
-// // var generateBtn = document.querySelector("#generate");
-// function copyText(password) {
 
-//   var copyBtn = document.querySelector('#password');
-//   // document.execCommand("Copy");
-//   console.log("Password copied to clipboard!");
-// };

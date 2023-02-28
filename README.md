@@ -5,10 +5,9 @@ Welcome to the Password Generator!  Here you can answer a series of prompts to d
 ## Table of contents
 
 > - [Using the Generator](#Using-the-generator)
->   - [Features](#features)
->   - [Technology](#technology)
->   - [Future Development](#Future-Development)
->   - [How to Contribute](#How--to--Contribute)
+> - [Technology](#technology)
+> - [Future Development](#Future-Development)
+> - [How to Contribute](#How--to--Contribute)
 
 ## Using the generator
 
