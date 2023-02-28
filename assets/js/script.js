@@ -97,10 +97,10 @@ var specialCase = window.confirm("Would you like to include include special char
 
   // call the generatePassword function
   // return newPassword;
-  console.log(newPassword);
+  console.log("Your new password is " + newPassword);
 
     // Add new password to password history
-    newPassword.push(passwordList);
+    passwordList.push(newPassword);
     console.log("Previous Passwords: ");
     console.log(passwordList);
 
